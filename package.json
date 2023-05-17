@@ -14,7 +14,8 @@
     "axios": "^1.4.0",
     "react": "18.2.0",
     "react-native": "0.71.8",
-    "react-native-vision-camera": "^2.15.4"
+    "react-native-vision-camera": "^2.15.4",
+    "vision-camera-code-scanner": "^0.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

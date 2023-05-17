@@ -52,6 +52,6 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSCameraUsageDescription</key>
-	<string>For barcode scanning</string>
+	<string>Veralink needs access to your Camera</string>
 </dict>
 </plist>

@@ -27,3 +27,8 @@ package-lock.json
 # Visual studio
 .vscode
 .vs
+
+# iOS / CocoaPods
+Gemfile.lock
+ios/Pods/
+ios/build/
