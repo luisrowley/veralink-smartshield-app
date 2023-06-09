@@ -40,9 +40,9 @@ function ScanScreen(): JSX.Element {
   const onSuccess = (e: { data: string }) => {
     if (websocket) {
       // Send WebSocket message to the server
-      const wsData = JSON.stringify({ "uid": e.data });
-      console.log('Message sent:', wsData);
-      websocket.send(wsData);
+      const data = JSON.stringify({ "uid": e.data });
+      console.log('Message sent:', data);
+      websocket.send(data);
     }
   };
 
