@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,10 +11,39 @@ import {
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 function ScanScreen(): JSX.Element {
-  const onSuccess = (e: { data: string; }) => {
-    Linking.openURL(e.data).catch(err =>
-      console.error('An error occured', err)
-    );
+  const [websocket, setWebsocket] = useState<WebSocket | null>(null);
+
+  useEffect(() => {
+    const ws = new WebSocket('ws://192.168.0.38:8999');
+    
+    ws.onopen = () => {
+      console.log('WebSocket connection opened');
+      setWebsocket(ws);
+    };
+    
+    ws.onmessage = (event) => {
+      console.log('Received message:', event.data);
+      // Process the received message if needed
+    };
+    
+    ws.onerror = (error) => {
+      console.log('WebSocket error:', error);
+      // Handle WebSocket error
+    };
+    
+    return () => {
+      // Clean up the WebSocket connection
+      ws.close();
+    };
+  }, []);
+
+  const onSuccess = (e: { data: string }) => {
+    if (websocket) {
+      // Send WebSocket message to the server
+      const wsData = JSON.stringify({ "uid": e.data });
+      console.log('Message sent:', wsData);
+      websocket.send(wsData);
+    }
   };
 
   return (
