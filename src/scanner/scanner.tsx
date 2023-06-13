@@ -18,9 +18,6 @@ class ScanScreen extends Component<{}, { ws: WebSocket }>  {
   }
 
   componentDidMount() {
-    console.log('App loaded!');
-    //this.setState({ ws: new WebSocket('ws://192.168.0.38:8999') });
-
     this.state.ws.onopen = () => {
       console.log('WebSocket connection opened');
       //this.setState({ ws: this.ws });
@@ -67,7 +64,7 @@ class ScanScreen extends Component<{}, { ws: WebSocket }>  {
         }
         bottomContent={
           <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>Need help?</Text>
+            <Text style={styles.buttonText}>Or enter the URL manually</Text>
           </TouchableOpacity>
         }
       />
