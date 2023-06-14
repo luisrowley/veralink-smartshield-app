@@ -4,7 +4,15 @@ import ScanScreen from "../screens/scanner/scanner";
 import VerifyScreen from "../screens/url-verify/url-verify";
 
 const linking = {
-  prefixes: ['veralink://']
+  prefixes: ['veralink://'],
+  config: {
+    initialRouteName: 'Scanner',
+    screens: {
+      Scanner: {
+        path: 'scanner'
+      },
+    }
+  }
 };
 
 const RootNavigator = () => {
@@ -20,3 +28,5 @@ const RootNavigator = () => {
     </NavigationContainer>
   );
 };
+
+export default RootNavigator;
