@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
-class ScanScreen extends Component<{}, { ws: WebSocket }>  {
+class ScanScreen extends Component<{navigation: any}, { ws: WebSocket }>  {
   constructor(props: any) {
     super(props);
 
@@ -64,7 +64,7 @@ class ScanScreen extends Component<{}, { ws: WebSocket }>  {
         }
         bottomContent={
           <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>Or enter the URL manually</Text>
+            <Text style={styles.buttonText}>Or enter manually</Text>
           </TouchableOpacity>
         }
       />

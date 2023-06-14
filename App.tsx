@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Text
 } from 'react-native';
-import ScanScreen from './src/scanner/scanner';
+import ScanScreen from './src/screens/scanner/scanner';
 
 function LoadingView(): JSX.Element {
   return (
