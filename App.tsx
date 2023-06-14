@@ -6,6 +6,7 @@ import {
   Text
 } from 'react-native';
 import ScanScreen from './src/screens/scanner/scanner';
+import RootNavigator from './src/router/root-navigator';
 
 function LoadingView(): JSX.Element {
   return (
@@ -39,7 +40,7 @@ function App(): JSX.Element {
   }, []);
   
   return (
-    <ScanScreen/>
+    <RootNavigator />
   );
 }
 

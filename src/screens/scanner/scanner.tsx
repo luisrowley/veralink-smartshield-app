@@ -63,7 +63,10 @@ class ScanScreen extends Component<{navigation: any}, { ws: WebSocket }>  {
           </Text>
         }
         bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
+          <TouchableOpacity
+            style={styles.buttonTouchable}
+            onPress={() => this.props.navigation.navigate('Verify')}
+          >
             <Text style={styles.buttonText}>Or enter manually</Text>
           </TouchableOpacity>
         }

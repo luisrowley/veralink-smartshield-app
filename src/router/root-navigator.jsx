@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { ActivityIndicator } from "react-native/types";
+import { ActivityIndicator } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ScanScreen from "../screens/scanner/scanner";
 import VerifyScreen from "../screens/url-verify/url-verify";
 
@@ -14,6 +15,8 @@ const linking = {
     }
   }
 };
+
+const RootStack = createNativeStackNavigator();
 
 const RootNavigator = () => {
   return (
