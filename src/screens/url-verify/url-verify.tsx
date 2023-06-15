@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
 // @ts-ignore
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios';
 
 const VerifyScreen = ({ navigation }: any) => {
   const [inputText, setInputText] = useState('');
@@ -11,6 +12,21 @@ const VerifyScreen = ({ navigation }: any) => {
     const clipboardContent = await Clipboard.getString();
     setInputText(clipboardContent);
   };
+
+  const validateURL = async () => {
+    const validationServer = 'http://192.168.0.38:3000/verify'; // move to env file
+    const fullUrl = `${validationServer}?url=${encodeURIComponent(inputText)}`;
+  
+    try {
+      const response = await axios.get(fullUrl);
+      // Process the response data
+      console.log(response.data);
+    } catch (error) {
+      // Handle error cases
+      console.error(error);
+    }
+  };
+
 
   return (
     <View style={styles.outerContainer}>
@@ -25,7 +41,7 @@ const VerifyScreen = ({ navigation }: any) => {
           <Icon name="paste" size={30} color="#006" />
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.button} onPress={handlePasteFromClipboard}>
+      <TouchableOpacity style={styles.button} onPress={validateURL}>
           <Text>Check URL!</Text>
       </TouchableOpacity>
     </View>
