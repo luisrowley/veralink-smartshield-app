@@ -1,6 +1,6 @@
 import Clipboard from '@react-native-community/clipboard';
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, Linking } from 'react-native';
 // @ts-ignore
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
@@ -20,10 +20,17 @@ const VerifyScreen = ({ navigation }: any) => {
     try {
       const response = await axios.get(fullUrl);
       // Process the response data
-      console.log(response.data);
-    } catch (error) {
+      if (response.data.urlToRedirect) {
+        console.log(response.data);
+        const externalUrl = response.data.urlToRedirect;
+        Linking.openURL(externalUrl);
+      }
+    } catch (error: any) {
       // Handle error cases
-      console.error(error);
+      if (error.response.status) {
+        navigation.navigate('Warning');
+      }
+      // console.error(error);
     }
   };
 

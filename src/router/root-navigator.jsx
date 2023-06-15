@@ -3,14 +3,15 @@ import { ActivityIndicator } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ScanScreen from "../screens/scanner/scanner";
 import VerifyScreen from "../screens/url-verify/url-verify";
+import WarningScreen from "../screens/warning/warning";
 
 const linking = {
   prefixes: ['veralink://'],
   config: {
-    initialRouteName: 'Scanner',
+    initialRouteName: 'Verify',
     screens: {
       Scanner: {
-        path: 'scanner'
+        path: 'verify'
       },
     }
   }
@@ -27,6 +28,7 @@ const RootNavigator = () => {
       <RootStack.Navigator>
         <RootStack.Screen name="Scanner" component={ScanScreen} />
         <RootStack.Screen name="Verify" component={VerifyScreen} />
+        <RootStack.Screen name="Warning" component={WarningScreen} />
       </RootStack.Navigator>
     </NavigationContainer>
   );
