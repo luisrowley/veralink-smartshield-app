@@ -23,9 +23,10 @@ class ScanScreen extends Component<{navigation: any}, { ws: WebSocket }>  {
       //this.setState({ ws: this.ws });
     };
 
-    this.state.ws.onmessage = (event) => {
-      console.log('Received message:', event.data);
-      // Process the received message if needed
+    this.state.ws.onmessage = (event: any) => {
+      const decodedPayload = JSON.parse(event.data);
+      console.log('Received message:', decodedPayload);
+      // if uid received but it's not trusted navigate('Warning')
     };
 
     this.state.ws.onclose = () => {
