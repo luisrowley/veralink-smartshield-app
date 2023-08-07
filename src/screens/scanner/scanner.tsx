@@ -7,13 +7,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
+import { WEBSOCKET_URL } from "@env";
 
 class ScanScreen extends Component<{navigation: any}, { ws: WebSocket }>  {
   constructor(props: any) {
     super(props);
 
     this.state = {
-      ws: new WebSocket('ws://192.168.0.38:8999'),
+      ws: new WebSocket(WEBSOCKET_URL),
     };
   }
 

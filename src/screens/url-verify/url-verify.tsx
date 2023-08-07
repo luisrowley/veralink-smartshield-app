@@ -4,6 +4,8 @@ import { View, TextInput, StyleSheet, TouchableOpacity, Text, Linking } from 're
 // @ts-ignore
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
+import { VALIDATION_SERVER } from "@env";
+
 
 const VerifyScreen = ({ navigation }: any) => {
   const [inputText, setInputText] = useState('');
@@ -14,7 +16,7 @@ const VerifyScreen = ({ navigation }: any) => {
   };
 
   const validateURL = async () => {
-    const validationServer = 'http://192.168.0.38:3000/verify'; // move to env file
+    const validationServer = `${VALIDATION_SERVER}/verify`; // move to env file
     const fullUrl = `${validationServer}?url=${encodeURIComponent(inputText)}`;
   
     try {
