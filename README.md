@@ -21,7 +21,7 @@ npm install
 npx react-native start
 ```
 
-- Start the [Proxy Server](https://github.com/luisrowley/veralink-smartshield) and then the [Smartshield SDK](https://github.com/luisrowley/veralink-smartshield-sdk) server by following the instructions outlined in the docs or testing locally.
+- Start the [Proxy Server](https://github.com/luisrowley/veralink-smartshield) and then the [Smartshield SDK](https://github.com/luisrowley/veralink-smartshield-sdk) server by following the instructions outlined in the docs for testing locally.
 
 ## Use cases
 1. **QR Code scan** : If testing locally, simply navigate to **`http://localhost:3000/?url=http://localhost:3001`** and aim at the QR Code.
